@@ -1,6 +1,6 @@
 {
   "name": "msdev",
-  "homepage": " https://murats4hin.github.io/MuratSahinDev/",
+  "homepage": " https://murats4hin.github.io/MuratSahinDev",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,8 +8,8 @@
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build && cp build/client/index.html build/client/404.html",
+    "deploy": "gh-pages -d build/client"
   },
   "dependencies": {
     "@react-router/node": "^7.9.2",
