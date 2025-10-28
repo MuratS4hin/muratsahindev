@@ -12,16 +12,16 @@ const ProjectsPage = () => {
 
             <main className="projects-main">
                 <div className="projects-header">
-                    <h1>Projelerim</h1>
-                    <p>Tasarım ve geliştirme becerilerimi sergileyen çalışmalarımın bir koleksiyonu.</p>
+                    <h1>Projects</h1>
+                    <p>A collection of my work showcasing my design and development skills.</p>
                 </div>
 
-                <div className="projects-filters">
+               {/* <div className="projects-filters">
                     <button className="filter-btn active">Tümü</button>
                     <button className="filter-btn">Web Uygulamaları</button>
                     <button className="filter-btn">Mobil Uygulamalar</button>
                     <button className="filter-btn">Tasarım Projeleri</button>
-                </div>
+                </div> */}
 
                 <div className="projects-grid">
                     {projects.map((project, index) => (

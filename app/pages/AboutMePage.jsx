@@ -1,23 +1,30 @@
 import React from 'react';
 import Header from '../component/Header.jsx';
+import Footer from '../component/Footer.jsx';
 import './AboutMePage.css';
+
+// Icons
+import SchoolIcon from '@mui/icons-material/School';
+import WorkIcon from '@mui/icons-material/Work';
+import CodeIcon from '@mui/icons-material/Code';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 
 const AboutMePage = () => {
 
-    const SidebarLink = ({ href, icon, text, isActive = false }) => {
-        return (
-            <a href={href} className={`sidebar-link ${isActive ? 'active' : ''}`}>
-                <span className="material-symbols-outlined">{icon}</span>
-                <p>{text}</p>
-            </a>
-        );
-    };
+const SidebarLink = ({ href, icon: Icon, text, isActive = false }) => {
+  return (
+    <a href={href} className={`sidebar-link ${isActive ? 'active' : ''}`}>
+      {Icon && <Icon className="sidebar-icon" />}
+      <p>{text}</p>
+    </a>
+  );
+};
+
 
     return (
         <div className="about-page">
             <Header />
             <div className="about-container">
-                {/* Sidebar */}
                 <aside className="sidebar">
                     <div className="sidebar-top">
                         <div
@@ -25,15 +32,15 @@ const AboutMePage = () => {
                             style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBg65H5USjg6t2qCPC3m15xxQ1oYS_P03edxQUDXtL51bQJ9l_FqQiTWlJcZAxCeVTHYYR9b2RLS7EJQWxlfQvwpO-YFcD88hPtVjoEUHRELgnLDM3LtX-Vce591sgP_m5pbhjo-LpiXA96flF6GwljXPVhZvmG1eOTp_-rfbSPUZG83ZFZIIDmi60y9IRoGkMRGwWtiMqFgvFKWIoyM0y9IGBtTRBQcRRpyEZF2QeHIts2xk-O-Vj-qwNhZugqpFt-lQo4N8mLXJY")' }}
                         />
                         <div className="profile-info">
-                            <h1>Mehmet Yılmaz</h1>
-                            <p>Yazılım Geliştirici</p>
+                            <h1>Murat Şahin</h1>
+                            <p>Senior Software Developer</p>
                         </div>
                     </div>
                     <div className="sidebar-links">
-                        <SidebarLink href="#egitim" icon="school" text="Eğitim" isActive />
-                        <SidebarLink href="#deneyim" icon="work" text="Deneyim" />
-                        <SidebarLink href="#beceriler" icon="code" text="Beceriler" />
-                        <SidebarLink href="#ilgi-alanlari" icon="camera" text="İlgi Alanları" />
+                        <SidebarLink href="#egitim" icon={SchoolIcon} text="Eğitim" />
+                        <SidebarLink href="#deneyim" icon={WorkIcon} text="Deneyim" />
+                        <SidebarLink href="#beceriler" icon={CodeIcon} text="Beceriler" />
+                        <SidebarLink href="#ilgi-alanlari" icon={PhotoCameraIcon} text="İlgi Alanları" />
                     </div>
                     <button className="download-cv">CV'mi İndir</button>
                 </aside>
@@ -42,35 +49,38 @@ const AboutMePage = () => {
                 <main className="about-main">
                     {/* Page title */}
                     <div className="page-title">
-                        <p>Özgeçmiş</p>
+                        <p>Resume</p>
                     </div>
 
                     {/* Education */}
                     <section className="section" id="egitim">
-                        <h2>Eğitim</h2>
+                        <div className="section-header">
+                            <SchoolIcon />
+                            <h2>Eğitim</h2>
+                        </div>
                         <div className="timeline">
-                            <div className="timeline-icon"><span className="material-symbols-outlined">school</span></div>
                             <div className="timeline-content">
-                                <p className="title">Orta Doğu Teknik Üniversitesi</p>
-                                <p className="subtitle">Bilgisayar Mühendisliği</p>
-                                <p className="date">2016 - 2020</p>
+                                <p className="title">Istanbul Technical University</p>
+                                <p className="subtitle">Electronics and Communication Engineering</p>
+                                <p className="subtitle">2017-2021</p>
+                                <p className="subtitle">GPA: 3.07</p>
                             </div>
-
-                            <div className="timeline-icon"><span className="material-symbols-outlined">school</span></div>
-                            <div className="timeline-content">
+                            {/* <div className="timeline-content">
                                 <p className="title">Ankara Fen Lisesi</p>
                                 <p className="subtitle">Sayısal</p>
                                 <p className="date">2012 - 2016</p>
-                            </div>
+                            </div> */}
                         </div>
                     </section>
 
                     {/* Experience */}
                     <section className="section" id="deneyim">
-                        <h2>İş Deneyimi</h2>
+                                                <div className="section-header">
+                            <WorkIcon />
+                            <h2>İş Deneyimi</h2>
+                        </div>
                         <div className="experience">
                             <div className="experience-item">
-                                <span className="material-symbols-outlined">work</span>
                                 <div>
                                     <p className="title">Teknoloji A.Ş.</p>
                                     <p className="subtitle">Kıdemli Yazılım Geliştirici</p>
@@ -84,7 +94,6 @@ const AboutMePage = () => {
                             </div>
 
                             <div className="experience-item">
-                                <span className="material-symbols-outlined">work</span>
                                 <div>
                                     <p className="title">Yazılım Çözümleri Ltd.</p>
                                     <p className="subtitle">Yazılım Geliştirici</p>
@@ -106,7 +115,7 @@ const AboutMePage = () => {
                             <div className="skill-category">
                                 <h3>Teknik Beceriler</h3>
                                 <div className="skill-bar">
-                                    <span>Python</span>
+                                    <span>.NET</span>
                                     <div className="bar"><div style={{width: '90%'}} /></div>
                                 </div>
                                 <div className="skill-bar">
@@ -114,11 +123,11 @@ const AboutMePage = () => {
                                     <div className="bar"><div style={{width: '85%'}} /></div>
                                 </div>
                                 <div className="skill-bar">
-                                    <span>Figma</span>
+                                    <span>Python</span>
                                     <div className="bar"><div style={{width: '75%'}} /></div>
                                 </div>
                             </div>
-                            <div className="skill-category">
+                            {/* <div className="skill-category">
                                 <h3>Kişisel Beceriler</h3>
                                 <div className="soft-skills">
                                     <span>Ekip Çalışması</span>
@@ -126,11 +135,11 @@ const AboutMePage = () => {
                                     <span>İletişim</span>
                                     <span>Zaman Yönetimi</span>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </section>
 
-                    {/* Interests */}
+                    {/* Interests
                     <section className="section" id="ilgi-alanlari">
                         <h2>İlgi Alanları</h2>
                         <div className="interests-grid">
@@ -151,9 +160,10 @@ const AboutMePage = () => {
                                 <p>Doğa Yürüyüşü</p>
                             </div>
                         </div>
-                    </section>
+                    </section> */}
                 </main>
             </div>
+            <Footer />
         </div>
     );
 };
