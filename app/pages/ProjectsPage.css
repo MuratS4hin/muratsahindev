@@ -1,0 +1,95 @@
+.projects-page {
+    font-family: 'Arial', sans-serif;
+    background-color: #111827;
+    color: #111827;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ana bölüm */
+.projects-main {
+    flex-grow: 1;
+    padding: 32px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Başlık */
+.projects-header h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 12px;
+    color: #2563eb; /* Primary */
+}
+
+.projects-header p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #4b5563;
+}
+
+/* Filtre Butonları */
+.projects-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db; /* Gray border */
+    color: #111827;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: rgba(37, 99, 235, 0.1); /* Hover primary */
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.filter-btn.active {
+    background-color: rgba(37, 99, 235, 0.1);
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+/* Proje Kartları Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .projects-header h1 {
+        font-size: 3rem;
+    }
+
+    .projects-header p {
+        font-size: 1.125rem;
+    }
+}
